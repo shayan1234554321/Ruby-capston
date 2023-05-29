@@ -1,4 +1,4 @@
-require_relative './menu'
+require_relative './lib/menu.rb'
 
 def main
   menu = Menu.new(app)
