@@ -13,10 +13,7 @@ class Menu
 
   def perform_action(choice)
     case choice
-    when 1 then @app.list_books
-    when 0
-      puts 'Thanks for using this app!'
-      exit
+    when 1 then @app.list_items
     else
       puts 'Invalid option. Please choose again.'
     end
