@@ -21,8 +21,8 @@ class Item
     @source = id
   end
 
-  def add_lable(id)
-    @lable = id
+  def add_label(id)
+    @label = id
   end
 
   def move_to_archive
