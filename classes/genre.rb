@@ -1,3 +1,5 @@
+require_relative './item'
+
 class Genre
   def initialize(name, id)
     @id = id.nil? ? Random.rand(1..10_000) : id
