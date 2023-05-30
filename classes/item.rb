@@ -3,26 +3,26 @@ require 'date'
 class Item
   attr_reader :id, :publish_date, :genre, :author, :source, :lable
 
-  def initialize(publish_date)
-    @id = Random.rand(1..10_000)
+  def initialize(publish_date, id)
+    id.nil? ? @id = Random.rand(1..10_000) : @id = id
     @publish_date = Date.parse(publish_date)
     @archived = false
   end
 
-  def set_genre(genre)
-    @genre = genre
+  def set_genre(id)
+    @genre = id
   end
 
-  def set_author(author)
-    @author = author
+  def set_author(id)
+    @author = id
   end
 
-  def set_source(source)
-    @source = source
+  def set_source(id)
+    @source = id
   end
 
-  def set_lable(lable)
-    @lable = lable
+  def set_lable(id)
+    @lable = id
   end
 
   def move_to_archive
