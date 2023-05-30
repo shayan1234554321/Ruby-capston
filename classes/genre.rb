@@ -1,11 +1,11 @@
 class Genre
   def initialize(name, id)
-    id.nil? ? @id = Random.rand(1..10_000) : @id = id
+    @id = id.nil? ? Random.rand(1..10_000) : id
     @name = name
-    @items=[]
+    @items = []
   end
 
   def add_item(item)
-    @items << item    
+    @items << item
   end
 end

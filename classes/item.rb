@@ -4,24 +4,24 @@ class Item
   attr_reader :id, :publish_date, :genre, :author, :source, :lable
 
   def initialize(publish_date, id)
-    id.nil? ? @id = Random.rand(1..10_000) : @id = id
+    @id = id.nil? ? Random.rand(1..10_000) : id
     @publish_date = Date.parse(publish_date)
     @archived = false
   end
 
-  def set_genre(id)
+  def add_genre(id)
     @genre = id
   end
 
-  def set_author(id)
+  def add_author(id)
     @author = id
   end
 
-  def set_source(id)
+  def add_source(id)
     @source = id
   end
 
-  def set_lable(id)
+  def add_lable(id)
     @lable = id
   end
 

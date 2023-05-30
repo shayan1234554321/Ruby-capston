@@ -11,7 +11,7 @@ def main
   loop do
     menu.display_options
     choice = gets.chomp.to_i
-    abort('Bye') if choice == 0
+    abort('Bye') if choice.zero?
     menu.perform_action(choice)
   end
 end
