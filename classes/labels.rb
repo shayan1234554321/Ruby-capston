@@ -1,7 +1,8 @@
-class Lables_array
+class LablesArray
   attr_accessor :labels
+
   def initialize
-    @labels=[]
+    @labels = []
   end
 
   def new_label(label)
