@@ -1,0 +1,26 @@
+[
+    {
+      "genre": "Rock",
+      "author": "The Beatles",
+      "source": "CD",
+      "label": "Apple Records",
+      "publish_date": "1967-06-01",
+      "on_spotify": true
+    },
+    {
+      "genre": "Pop",
+      "author": "Taylor Swift",
+      "source": "Streaming",
+      "label": "Republic Records",
+      "publish_date": "2020-07-24",
+      "on_spotify": true
+    },
+    {
+      "genre": "Hip Hop",
+      "author": "Kendrick Lamar",
+      "source": "Vinyl",
+      "label": "Top Dawg Entertainment",
+      "publish_date": "2017-04-14",
+      "on_spotify": false
+    }
+  ]
