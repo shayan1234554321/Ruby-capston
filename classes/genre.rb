@@ -1,10 +1,13 @@
+require_relative '../classes/item'
+
 class Genre
   attr_accessor :name, :items, :id
 
-  def initialize(name, id)
-    @id = id.nil? ? Random.rand(1..10_000) : id
+  def initialize(name)
+    @id = Random.rand(1..1000)
     @name = name
     @items = []
+    Genre.all << self
   end
 
   def add_item(item)
