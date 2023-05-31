@@ -1,4 +1,4 @@
-require_relative '../classes/genre.rb'
+require_relative '../classes/genre'
 
 describe Genre do
   let(:genre) { Genre.new('Horror') }
