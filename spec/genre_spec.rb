@@ -2,7 +2,7 @@ require_relative '../classes/genre'
 
 describe Genre do
   let(:genre) { Genre.new('Horror') }
-  let(:item) { Item.new("2001-03-04", 8) }
+  let(:item) { Item.new('2001-03-04', 8) }
 
   describe '#initialize' do
     it 'creates a new genre with a name and id' do
@@ -14,7 +14,7 @@ describe Genre do
   describe '#add_item' do
     it 'adds a new item to the items array' do
       genre.add_item(item)
-      expect(genre.items[-1].id ).to be(item.id)
+      expect(genre.items[-1].id).to be(item.id)
       expect(genre.items[-1].publish_date).to be(item.publish_date)
     end
   end

@@ -2,18 +2,34 @@ require_relative '../classes/music_album'
 
 describe MusicAlbum do
   let(:genre) { double('genre') }
-  let(:album) { MusicAlbum.new(genre, 'Pink Floyd', 'Vinyl', 'EMI', Time.new(2000, 1, 1), true) }
+  let(:album) do
+    MusicAlbum.new(
+      genre: genre,
+      author: 'Pink Floyd',
+      source: 'Vinyl',
+      label: 'EMI',
+      publish_date: '2000-01-01',
+      on_spotify: true
+    )
+  end
   let(:archived_album) do
-    MusicAlbum.new(genre, 'The Beatles', 'CD', 'Apple Records', Time.now - (10 * 365 * 24 * 60 * 11), true)
+    MusicAlbum.new(
+      genre: genre,
+      author: 'The Beatles',
+      source: 'CD',
+      label: 'Apple Records',
+      publish_date: (Time.now - (10 * 365 * 24 * 60 * 11)).to_s,
+      on_spotify: true
+    )
   end
 
   describe '#initialize' do
-    it 'creates a new music album with a genre, author, source, label, publish date and on_spotify flag' do
+    it 'creates a new music album with a genre, author, source, label, publish date, and on_spotify flag' do
       expect(album.genre).to eq genre
       expect(album.author).to eq 'Pink Floyd'
       expect(album.source).to eq 'Vinyl'
       expect(album.label).to eq 'EMI'
-      expect(album.publish_date).to eq Time.new(2000, 1, 1)
+      expect(album.publish_date).to eq Date.parse('2000-01-01')
       expect(album.on_spotify).to be true
     end
   end
@@ -28,7 +44,7 @@ describe MusicAlbum do
     end
 
     it 'returns false if the music album is not on Spotify' do
-      album.on_spotify = false
+      album.instance_variable_set(:@on_spotify, false)
       expect(album.can_be_archived?).to be false
     end
   end
