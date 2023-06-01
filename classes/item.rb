@@ -22,7 +22,7 @@ class Item
   end
 
   def add_label(id)
-    @lable = id
+    @label = id
   end
 
   def move_to_archive
