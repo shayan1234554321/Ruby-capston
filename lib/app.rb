@@ -33,27 +33,24 @@ class App
       @music_albums.each do |album|
         puts "
       Genre: #{album.genre}
-      Author: #{album.author}
-      Source: #{album.source}
-      Label: #{album.label}
       Publish Date: #{album.publish_date}
-      On Spotify: #{album.on_spotify}
-      "
+      On Spotify: #{album.on_spotify}"
       end
     end
-
-    def add_genre
-      Genre.create
-    end
-
-    def add_music_album
-      MusicAlbum.create
-    end
-
-    def exit
-      FileHandler.save(@genres, 'genres.json') if @genres.any?
-      FileHandler.save(@music_albums, 'music_albums.json') if @music_albums.any?
-      puts 'Thanks for using this app!'
-      exit!
-    end
   end
+
+  def add_genre
+    Genre.create
+  end
+
+  def add_music_album
+    MusicAlbum.create
+  end
+
+  def exit
+    FileHandler.save(@genres, 'genres.json') if @genres.any?
+    FileHandler.save(@music_albums, 'music_albums.json') if @music_albums.any?
+    puts 'Thanks for using this app!'
+    exit!
+  end
+end
