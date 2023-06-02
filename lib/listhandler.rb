@@ -11,6 +11,6 @@ module ListHandler
       end
       data.push(object)
     end
-    tp object
+    puts data
   end
 end

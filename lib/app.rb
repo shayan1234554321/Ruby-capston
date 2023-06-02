@@ -19,7 +19,7 @@ class App
     @games = GamesArray.new
     @books = BooksArray.new
     @authors = AuthorArray.new
-    @labels = Labels.new
+    @labels = LabelsArray.new
 
     # Genre.load
     # MusicAlbum.load
@@ -61,7 +61,8 @@ class App
 
   def list_all_books
     puts 'Books list'
-    listObjArr @books.books, [id, name, publisher, label, publish_date, archived]
+    list_obj_arr(@books.books, ['id', 'name', 'publisher', 'label', 'publish_date', 'archived'])
+    # puts @books.books
   end
 
   def list_all_music_albums
@@ -89,7 +90,8 @@ class App
 
   def list_all_labels
     puts 'Label List'
-    listObjArr @labels.labels [id, title, color]
+    list_obj_arr(@labels.labels, ['id', 'title', 'color'])
+    # puts @labels.labels
   end
 
   def list_all_authors
