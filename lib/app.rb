@@ -14,6 +14,7 @@ class App
 
   def initialize
     @games = Games.new
+    @authors = AuthorArray.new
 
     Genre.load
     MusicAlbum.load
@@ -60,8 +61,20 @@ class App
   def list_all_music_albums
     puts 'listing all music here'
   end
-  def list_all_games 
-    puts "listing all games here"
+
+  def list_all_games
+    if @games.games.empty?
+      p 'No games at the moment'
+    else
+      p 'The list of games'
+      @games.games.each do |game|
+        puts "Name: #{game.name}"
+        puts " - Publish Date: #{game.publish_date}"
+        puts " - Multiplayer: #{game.multiplayer}"
+        puts " - Last Played at: #{game.last_played_at}"
+        puts ' '
+      end
+    end
   end
 
   def list_all_generes
@@ -71,8 +84,18 @@ class App
   def list_all_labels
     puts 'listing all labels here'
   end
-  def list_all_authors 
-    puts "listing all authors here"
+
+  def list_all_authors
+    if @authors.authors.empty?
+      p 'No author at the moment'
+    else
+      p 'The list of authors'
+      @authors.authors.each do |author|
+        puts " - First Name: #{author.first_name}"
+        puts "   Last Name: #{author.last_name}"
+        puts ' '
+      end
+    end
   end
 
   def add_a_book
@@ -82,7 +105,29 @@ class App
   def add_a_music_album
     puts 'add a music here'
   end
-  def add_a_game 
-    puts "add a game here"
+
+  def add_a_game
+    puts 'Whats the name of your game '
+    name = gets.chomp
+    puts 'When is it published '
+    publish_date = gets.chomp
+    puts 'Is it a multiplayer game ? '
+    multiplayer = gets.chomp
+    puts 'When was it last played ? '
+    last_played_at = gets.chomp
+    puts 'Whats the first name of game author'
+    first_name = gets.chomp
+    puts 'Whats the last name of game author'
+    last_name = gets.chomp
+
+    game = Game.new(name, publish_date, multiplayer, last_played_at)
+    author = Author.new(first_name, last_name)
+
+    game.add_author(author.id)
+    author.add_item(game.id)
+
+    @authors.new_author(author, false)
+    @games.new_game(game, false)
+    puts 'Created author and game'
   end
 end
