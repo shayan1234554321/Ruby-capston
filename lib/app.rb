@@ -7,16 +7,19 @@ require_relative '../classes/music_album'
 require_relative '../classes/books'
 require_relative '../classes/labels'
 require_relative 'filehandler'
+require_relative 'listhandler'
 
 class App
   attr_accessor :genres, :music_albums, :games, :authors
 
   include FileHandler
+  include ListHandler
 
   def initialize
     @games = GamesArray.new
     @books = BooksArray.new
     @authors = AuthorArray.new
+    @labels = Labels.new
 
     # Genre.load
     # MusicAlbum.load
@@ -58,7 +61,7 @@ class App
 
   def list_all_books
     puts 'Books list'
-    listObjArr books.books, [id, name, publisher, label, publish_date, archived]
+    listObjArr @books.books, [id, name, publisher, label, publish_date, archived]
   end
 
   def list_all_music_albums
@@ -86,7 +89,7 @@ class App
 
   def list_all_labels
     puts 'Label List'
-    listObjArr labels.labels [id, title, color]
+    listObjArr @labels.labels [id, title, color]
   end
 
   def list_all_authors
