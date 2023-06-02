@@ -9,6 +9,11 @@ class Game < Item
     @last_played_at = last_played_at
   end
 
+  def add_author(id , authors)
+    @author = id
+    authors.locate(@author).add_item self
+  end
+
   def can_be_archived?
     super && (@last_played_at.year + 2) < Date.today.year
   end
