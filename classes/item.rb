@@ -18,10 +18,6 @@ class Item
     @author = id
   end
 
-  def add_source(id)
-    @source = id
-  end
-
   def add_label(id)
     @label = id
   end

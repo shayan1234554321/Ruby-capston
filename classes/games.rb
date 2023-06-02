@@ -1,4 +1,5 @@
 require_relative '../lib/filehandler'
+require_relative 'game'
 
 class GamesArray
   include FileHandler
@@ -6,13 +7,13 @@ class GamesArray
 
   def initialize
     @games = read_file('games').map do |h|
-      Game.new(h['publish_date'], h['multiplayer'], h['last_played_at'], h['id'].to_i)
+      Game.new(h['name'], h['publish_date'], h['multiplayer'], h['last_played_at'], h['id'].to_i)
     end
   end
 
-  def new_game(game)
+  def new_game(game, mock)
     @games << game
-    save @games, 'games'
+    save @games, 'games' unless mock
   end
 
   def locate(id)
