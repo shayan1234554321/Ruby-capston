@@ -13,14 +13,14 @@ class App
   include FileHandler
 
   def initialize
-    @games = Games.new
+    @games = GamesArray.new
     @authors = AuthorArray.new
 
-    Genre.load
-    MusicAlbum.load
+    # Genre.load
+    # MusicAlbum.load
 
-    @genres = Genre.all
-    @music_albums = MusicAlbum.all
+    # @genres = Genre.all
+    # @music_albums = MusicAlbum.all
   end
 
   # def list_genres

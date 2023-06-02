@@ -7,7 +7,7 @@ class AuthorArray
 
   def initialize
     @authors = read_file('authors').map do |h|
-      Author.new(h['first_name'], h['last_name'], h['id'].to_i)
+      Author.new(h['first_name'], h['last_name'], h['id'].to_i, h['items'])
     end
   end
 
