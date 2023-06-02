@@ -1,18 +1,17 @@
 class Menu
-
-  attr_accessor :options , :app
+  attr_accessor :options, :app
 
   def initialize(app)
     @app = app
     @options = {
-      '1' => :list_all_books ,
-      '2' => :list_all_music_albums ,
-      '3' => :list_all_games ,
-      '4' => :list_all_generes ,
-      '5' => :list_all_labels ,
-      '6' => :list_all_authors ,
-      '7' => :add_a_book ,
-      '8' => :add_a_music_album ,
+      '1' => :list_all_books,
+      '2' => :list_all_music_albums,
+      '3' => :list_all_games,
+      '4' => :list_all_generes,
+      '5' => :list_all_labels,
+      '6' => :list_all_authors,
+      '7' => :add_a_book,
+      '8' => :add_a_music_album,
       '9' => :add_a_game
     }.freeze
   end
@@ -37,7 +36,7 @@ class Menu
     send(options[choice.to_s])
   end
 
-  def list_all_books 
+  def list_all_books
     @app.list_all_books
   end
 
@@ -45,15 +44,15 @@ class Menu
     @app.list_all_music_albums
   end
 
-  def list_all_games 
+  def list_all_games
     @app.list_all_games
   end
-  
+
   def list_all_generes
     @app.list_all_generes
   end
 
-  def list_all_labels 
+  def list_all_labels
     @app.list_all_labels
   end
 
@@ -61,7 +60,7 @@ class Menu
     @app.list_all_authors
   end
 
-  def add_a_book 
+  def add_a_book
     @app.add_a_book
   end
 

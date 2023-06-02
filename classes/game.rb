@@ -9,7 +9,7 @@ class Game < Item
     @last_played_at = last_played_at
   end
 
-  def add_author(id , authors)
+  def add_author(id, authors)
     @author = id
     authors.locate(@author).add_item self
   end

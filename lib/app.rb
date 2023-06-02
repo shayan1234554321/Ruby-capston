@@ -2,7 +2,7 @@ require_relative '../classes/genre'
 require_relative '../classes/games'
 require_relative '../classes/music_album'
 
-require_relative 'filehandler.rb'
+require_relative 'filehandler'
 
 class App
   attr_accessor :genres, :music_albums, :games
@@ -50,31 +50,39 @@ class App
   #   MusicAlbum.create
   # end
 
-  def list_all_books 
-    puts "listing all books here"
+  def list_all_books
+    puts 'listing all books here'
   end
-  def list_all_music_albums 
-    puts "listing all music here"
+
+  def list_all_music_albums
+    puts 'listing all music here'
   end
-  def list_all_games 
-    puts "listing all games here"
+
+  def list_all_games
+    puts 'listing all games here'
   end
-  def list_all_generes 
-    puts "listing all generes here"
+
+  def list_all_generes
+    puts 'listing all generes here'
   end
-  def list_all_labels 
-    puts "listing all labels here"
+
+  def list_all_labels
+    puts 'listing all labels here'
   end
-  def list_all_authors 
-    puts "listing all authors here"
+
+  def list_all_authors
+    puts 'listing all authors here'
   end
-  def add_a_book 
-    puts "add a book here"
+
+  def add_a_book
+    puts 'add a book here'
   end
-  def add_a_music_album 
-    puts "add a music here"
+
+  def add_a_music_album
+    puts 'add a music here'
   end
-  def add_a_game 
-    puts "add a game here"
+
+  def add_a_game
+    puts 'add a game here'
   end
 end
