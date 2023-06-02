@@ -11,7 +11,7 @@ class GamesArray
     end
   end
 
-  def new_game(game, mock = false)
+  def new_game(game, mock)
     @games << game
     save @games, 'games' unless mock
   end

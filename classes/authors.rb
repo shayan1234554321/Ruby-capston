@@ -11,7 +11,7 @@ class AuthorArray
     end
   end
 
-  def new_author(author, mock = false)
+  def new_author(author, mock)
     @authors << author
     save @authors, 'authors' unless mock
   end

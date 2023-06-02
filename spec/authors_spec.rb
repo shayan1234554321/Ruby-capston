@@ -12,9 +12,9 @@ describe AuthorArray do
 
     it('Should add item') do
       author = Author.new('shayan', 'khan')
-      lengthBefore = authors.authors.length
+      length_before = authors.authors.length
       authors.new_author(author, true)
-      expect(authors.authors.length).to be(lengthBefore + 1)
+      expect(authors.authors.length).to be(length_before + 1)
     end
   end
 end

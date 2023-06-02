@@ -125,8 +125,8 @@ class App
     game.add_author(author.id)
     author.add_item(game.id)
 
-    @authors.new_author(author)
-    @games.new_game(game)
+    @authors.new_author(author, false)
+    @games.new_game(game, false)
     puts 'Created author and game'
   end
 end
