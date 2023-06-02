@@ -30,7 +30,7 @@
 
 # 📖 [My Things Catalog] <a name="about-project"></a>
 
-**[My Things Catalog]**  a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games stored in JSON files 
+**[My Things Catalog]**  a console app that will help you to keep a record of different types of things you own: books, music albums, and games stored in JSON files 
 
 ## UML Diagram <a name="diagram"></a>
 ![diagram](./catalog_of_my_things.png)

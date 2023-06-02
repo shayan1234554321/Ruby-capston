@@ -4,7 +4,6 @@ module FileHandler
   def save(collection, filename)
     data = []
     collection.each do |item|
-      puts item
       object = {}
       item.instance_variables.each do |var|
         object[var.to_s.delete('@')] = item.instance_variable_get(var).to_s
