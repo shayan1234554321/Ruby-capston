@@ -1,4 +1,4 @@
-require_relative '../class/filehandler'
+require_relative '../lib/filehandler'
 
 describe FileHandler do
   nil

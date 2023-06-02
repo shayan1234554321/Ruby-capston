@@ -1,5 +1,5 @@
-require_relative '../class/Labels'
+require_relative '../classes/labels'
 
-describe LabelArray do
+describe LabelsArray do
   nil
 end
