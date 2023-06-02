@@ -1,4 +1,3 @@
-
 require_relative '../classes/books'
 require_relative '../classes/book'
 
@@ -17,18 +16,19 @@ module FileHandler
     @filename = JSON.generate(data)
     filename
   end
-  def read_file(filename)
-    filename
-    @filename = [{"publisher"=>"p", "cover_state"=>"bad", "id"=>"6868", "publish_date"=>"2022-01-01", "archived"=>"true"}]
+
+  def read_file(_filename)
+    @filename = [{ 'publisher' => 'p', 'cover_state' => 'bad', 'id' => '6868', 'publish_date' => '2022-01-01',
+                   'archived' => 'true' }]
     JSON.parse(@filename)
   end
 end
 
 describe BooksArray do
-  b = Book.new 'p','good','2020-1-1'
+  b = Book.new 'p', 'good', '2020-1-1'
   bs = BooksArray.new
+  bs.new_book b
   it 'contains empty array' do
     expect(bs.books).to be_a Array
   end
-  
 end

@@ -21,7 +21,7 @@ describe Book do
     expect(bbad.archived).to be false
     expect(bold.archived).to be false
   end
-  
+
   it 'Moves to archive correctly' do
     bgood.move_to_archive
     bbad.move_to_archive
