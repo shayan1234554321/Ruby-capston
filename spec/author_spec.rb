@@ -10,7 +10,7 @@ describe Author do
     end
 
     it('Should add item') do
-      author.add_item("445")
+      author.add_item('445')
       expect(author.items.length).to be(1)
     end
   end

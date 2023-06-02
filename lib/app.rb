@@ -5,10 +5,10 @@ require_relative '../classes/authors'
 require_relative '../classes/author'
 require_relative '../classes/music_album'
 
-require_relative 'filehandler.rb'
+require_relative 'filehandler'
 
 class App
-  attr_accessor :genres, :music_albums, :games ,:authors
+  attr_accessor :genres, :music_albums, :games, :authors
 
   include FileHandler
 
@@ -53,65 +53,73 @@ class App
   #   MusicAlbum.create
   # end
 
-  def list_all_books 
-    puts "listing all books here"
+  def list_all_books
+    puts 'listing all books here'
   end
-  def list_all_music_albums 
-    puts "listing all music here"
+
+  def list_all_music_albums
+    puts 'listing all music here'
   end
-  def list_all_games 
-    if @games.games.size == 0
-      p "No games at the moment"
+
+  def list_all_games
+    if @games.games.empty?
+      p 'No games at the moment'
     else
-      p "The list of games"
-      @games.games.each do | game |
+      p 'The list of games'
+      @games.games.each do |game|
         puts "Name: #{game.name}"
         puts " - Publish Date: #{game.publish_date}"
         puts " - Multiplayer: #{game.multiplayer}"
         puts " - Last Played at: #{game.last_played_at}"
-        puts " "
+        puts ' '
       end
     end
   end
-  def list_all_generes 
-    puts "listing all generes here"
+
+  def list_all_generes
+    puts 'listing all generes here'
   end
-  def list_all_labels 
-    puts "listing all labels here"
+
+  def list_all_labels
+    puts 'listing all labels here'
   end
-  def list_all_authors 
-    if @authors.authors.size == 0
-      p "No author at the moment"
+
+  def list_all_authors
+    if @authors.authors.empty?
+      p 'No author at the moment'
     else
-      p "The list of authors"
-      @authors.authors.each do | author |
+      p 'The list of authors'
+      @authors.authors.each do |author|
         puts " - First Name: #{author.first_name}"
         puts "   Last Name: #{author.last_name}"
-        puts " "
+        puts ' '
       end
     end
   end
-  def add_a_book 
-    puts "add a book here"
+
+  def add_a_book
+    puts 'add a book here'
   end
-  def add_a_music_album 
-    puts "add a music here"
+
+  def add_a_music_album
+    puts 'add a music here'
   end
-  def add_a_game 
-    puts "Whats the name of your game "
+
+  def add_a_game
+    puts 'Whats the name of your game '
     name = gets.chomp
-    puts "When is it published "
+    puts 'When is it published '
     publish_date = gets.chomp
-    puts "Is it a multiplayer game ? "
+    puts 'Is it a multiplayer game ? '
     multiplayer = gets.chomp
-    puts "When was it last played ? "
+    puts 'When was it last played ? '
     last_played_at = gets.chomp
-    puts "Whats the first name of game author"
+    puts 'Whats the first name of game author'
     first_name = gets.chomp
-    puts "Whats the last name of game author"
+    puts 'Whats the last name of game author'
     last_name = gets.chomp
 
-    game = Game.new(name , publish_date, multiplayer, last_played_at)
+    game = Game.new(name, publish_date, multiplayer, last_played_at)
     author = Author.new(first_name, last_name)
 
     game.add_author(author.id)
@@ -119,6 +127,6 @@ class App
 
     @authors.new_author(author)
     @games.new_game(game)
-    puts "Created author and game"
+    puts 'Created author and game'
   end
 end

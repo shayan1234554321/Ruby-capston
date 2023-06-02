@@ -1,5 +1,5 @@
 require_relative '../lib/filehandler'
-require_relative 'author.rb'
+require_relative 'author'
 
 class AuthorArray
   include FileHandler
@@ -11,9 +11,9 @@ class AuthorArray
     end
   end
 
-  def new_author(author , mock = false)
+  def new_author(author, mock = false)
     @authors << author
-    save @authors, 'authors' if !mock
+    save @authors, 'authors' unless mock
   end
 
   def locate(id)

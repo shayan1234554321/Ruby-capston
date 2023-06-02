@@ -11,9 +11,9 @@ describe GamesArray do
     end
 
     it('Should add item') do
-      game = Game.new('PUBG','2022-2-2', true, '2022-4-3')
+      game = Game.new('PUBG', '2022-2-2', true, '2022-4-3')
       lengthBefore = games.games.length
-      games.new_game(game , true)
+      games.new_game(game, true)
       expect(games.games.length).to be(lengthBefore + 1)
     end
   end
