@@ -11,6 +11,7 @@ module ListHandler
       end
       data.push(object)
     end
+    # data.empty? ? puts "Empty" : puts data
     puts data
   end
 end
