@@ -1,7 +1,7 @@
 require_relative '../classes/books'
 require_relative '../classes/book'
 
-# Stud filehandler doesn't create file and provide data to test
+# Stub filehandler doesn't create file and provide data to test
 module FileHandler
   def save(collection, filename)
     @collection = collection
@@ -18,7 +18,7 @@ end
 describe BooksArray do
   b = Book.new 'n', 'p', 'good', '2020-1-1'
   bs = BooksArray.new
-  # bs.new_book b
+
   it 'reads from filehandler on initialize' do
     expect(bs.books).to be_a Array
     expect(bs.books.empty?).to be false

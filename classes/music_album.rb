@@ -1,23 +1,20 @@
 require_relative 'item'
 
 class MusicAlbum < Item
-  attr_accessor :on_spotify
+  attr_accessor :on_spotify, :genre
 
-  def initialize(params)
-    super(params[:publish_date])
-    @genre = params[:genre]
-    @author = params[:author]
-    @source = params[:source]
-    @label = params[:label]
-    @on_spotify = params[:on_spotify]
-    MusicAlbum.all << self
+  def initialize(name, on_spotify, publish_date, id = nil)
+    @genre = genre
+    @on_spotify = on_spotify
+    super(name, publish_date, id)
+  end
+
+  def add_genre(id, genres)
+    @genre = id
+    genres.locate(@genre).add_item self
   end
 
   def can_be_archived?
     super && @on_spotify
-  end
-
-  def self.all
-    @all ||= []
   end
 end

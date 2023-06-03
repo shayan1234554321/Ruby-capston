@@ -7,7 +7,9 @@ class GamesArray
 
   def initialize
     @games = read_file('games').map do |h|
-      Game.new(h['name'], h['publish_date'], h['multiplayer'], h['last_played_at'], h['id'].to_i)
+      game = Game.new(h['name'], h['publish_date'], h['multiplayer'], h['last_played_at'], h['id'].to_i)
+      game.author = h['author']
+      game
     end
   end
 

@@ -30,7 +30,7 @@
 
 # 📖 [My Things Catalog] <a name="about-project"></a>
 
-**[My Things Catalog]**  a console app that will help you to keep a record of different types of things you own: books, music albums, and games stored in JSON files 
+**My Things Catalog**  a console app that will help you to keep a record of different types of things you own: books, music albums, and games stored in JSON files
 
 ## UML Diagram <a name="diagram"></a>
 ![diagram](./catalog_of_my_things.png)
@@ -90,7 +90,7 @@ Example commands:
 Install this project with:
 
 ```sh
-  cd Rubi-capstone
+  cd Ruby-capston
   bundle install
 ```
 ### Usage
@@ -119,9 +119,9 @@ href="#readme-top">back to top</a>)</p>
 
 👤 **Shayan**
 
-- GitHub: [@githubhandle](https://github.com/shayan1234554321)
-- Twitter: [@twitterhandle](https://twitter.com/shayan123455432)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/shayan-khan20/)
+- GitHub: [Shayan1234554321](https://github.com/shayan1234554321)
+- Twitter: [@shayan123455432](https://twitter.com/shayan123455432)
+- LinkedIn: [Shayan Khan](https://www.linkedin.com/in/shayan-khan20/)
 
  **Mark Rubanza**
 
@@ -130,9 +130,9 @@ href="#readme-top">back to top</a>)</p>
 
 👤 **Giancarlo Dumani**
 
-- GitHub: [@githubhandle](https://github.com/gdumani)
-- Twitter: [@twitterhandle](https://twitter.com/gdumani1)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/gdumani/)
+- GitHub: [gdumani](https://github.com/gdumani)
+- Twitter: [gdumani](https://twitter.com/gdumani1)
+- LinkedIn: [Gaincarlo Dumani](https://www.linkedin.com/in/gdumani/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

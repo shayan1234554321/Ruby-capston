@@ -1,9 +1,9 @@
-require_relative '../classes/genre'
+require_relative '../classes/genres'
 require_relative '../classes/games'
 require_relative '../classes/game'
 require_relative '../classes/authors'
 require_relative '../classes/author'
-require_relative '../classes/music_album'
+require_relative '../classes/music_albums'
 require_relative '../classes/books'
 require_relative '../classes/labels'
 require_relative 'filehandler'
@@ -20,53 +20,18 @@ class App
     @labels = LabelsArray.new
     @games = GamesArray.new
     @authors = AuthorArray.new
-
-    # Genre.load
-    # MusicAlbum.load
-
-    # @genres = Genre.all
-    # @music_albums = MusicAlbum.all
+    @music_albums = MusicAlbumsArray.new
+    @genres = GenresArray.new
   end
-
-  # def list_genres
-  #   if @genres.empty?
-  #     puts 'No genres registered.'
-  #   else
-  #     puts '### Genres ###'
-  #     @genres.each_with_index { |genre, index| puts "#{index + 1} - #{genre.name}" }
-  #   end
-  # end
-
-  # def list_music_albums
-  #   if @music_albums.empty?
-  #     puts 'No albums found.'
-  #   else
-  #     puts '### Music Albums ###'
-  #     @music_albums.each do |album|
-  #       puts "
-  #     Genre: #{album.genre}
-  #     Publish Date: #{album.publish_date}
-  #     On Spotify: #{album.on_spotify}"
-  #     end
-  #   end
-  # end
-
-  # def add_genre
-  #   Genre.create
-  # end
-
-  # def add_music_album
-  #   MusicAlbum.create
-  # end
 
   def list_all_books
     puts 'Books list'
     list_obj_arr(@books.books, %w[id name publisher label publish_date archived])
-    # puts @books.books
   end
 
   def list_all_music_albums
-    puts 'listing all music here'
+    puts 'Music Albuns list'
+    list_obj_arr(@music_albums.music_albums, %w[id name on_spotify genre publish_date archived])
   end
 
   def list_all_games
@@ -85,7 +50,8 @@ class App
   end
 
   def list_all_generes
-    puts 'listing all generes here'
+    puts 'Genres list'
+    list_obj_arr(@genres.genres, %w[id name])
   end
 
   def list_all_labels
@@ -113,17 +79,18 @@ class App
   end
 
   def add_a_music_album
-    puts 'add a music here'
+    puts 'Add new Music Album'
+    @music_albums.create_music_album @genres
   end
 
   def add_a_game
     puts 'Whats the name of your game '
     name = gets.chomp
-    puts 'When is it published '
+    puts 'When is it published (yyyy-mm-dd)'
     publish_date = gets.chomp
-    puts 'Is it a multiplayer game ? '
+    puts 'Is it a multiplayer game ? (yes/no)'
     multiplayer = gets.chomp
-    puts 'When was it last played ? '
+    puts 'When was it last played ? (yyyy-mm-dd)'
     last_played_at = gets.chomp
     puts 'Whats the first name of game author'
     first_name = gets.chomp

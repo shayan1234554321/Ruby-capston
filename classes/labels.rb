@@ -1,4 +1,5 @@
 require_relative '../lib/filehandler'
+require_relative './label'
 
 class LabelsArray
   include FileHandler
