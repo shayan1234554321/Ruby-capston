@@ -28,7 +28,7 @@ class MusicAlbumsArray
     print 'Name: '
     name = gets.chop
     print 'On Spotify y/n: '
-    on_spotify = gets.chomp == 'y' ? true : fase
+    on_spotify = gets.chomp == 'y' ? true : false
     print 'Publish Date (yyyy-m-d): '
     publish_date = gets.chomp
     puts 'Select a genre from the list'

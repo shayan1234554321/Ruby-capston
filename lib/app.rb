@@ -86,11 +86,11 @@ class App
   def add_a_game
     puts 'Whats the name of your game '
     name = gets.chomp
-    puts 'When is it published '
+    puts 'When is it published (yyyy-mm-dd)'
     publish_date = gets.chomp
-    puts 'Is it a multiplayer game ? '
+    puts 'Is it a multiplayer game ? (yes/no)'
     multiplayer = gets.chomp
-    puts 'When was it last played ? '
+    puts 'When was it last played ? (yyyy-mm-dd)'
     last_played_at = gets.chomp
     puts 'Whats the first name of game author'
     first_name = gets.chomp
