@@ -1,7 +1,7 @@
 require_relative '../classes/books'
 require_relative '../classes/book'
 
-# Stud filehandler doesn't create file and provide data to test
+# Stub filehandler doesn't create file and provide data to test
 module FileHandler
   def save(collection, filename)
     @collection = collection
