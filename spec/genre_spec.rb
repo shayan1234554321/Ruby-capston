@@ -1,21 +1,47 @@
 require_relative '../classes/genre'
+require_relative '../classes/item'
 
-describe Genre do
-  let(:genre) { Genre.new('Horror') }
-  let(:item) { Item.new('2001-03-04', 8) }
+RSpec.describe Genre do
+  let(:genre_name) { 'Rock' }
+  let(:item1) { Item.new('Item 1', '2021-01-01') }
+  let(:item2) { Item.new('Item 2', '2021-01-02') }
 
   describe '#initialize' do
-    it 'creates a new genre with a name and id' do
-      expect(genre.name).to eq 'Horror'
-      expect(genre.id).to be_between(1, 1000)
+    it 'sets the name and id' do
+      genre = Genre.new(genre_name, 1)
+
+      expect(genre.name).to eq(genre_name)
+      expect(genre.id).to eq(1)
+    end
+
+    it 'generates a random id if not provided' do
+      genre = Genre.new(genre_name)
+
+      expect(genre.name).to eq(genre_name)
+      expect(genre.id).to be_a(Integer)
+    end
+
+    it 'initializes the items as an empty array' do
+      genre = Genre.new(genre_name)
+
+      expect(genre.items).to eq([])
     end
   end
 
   describe '#add_item' do
-    it 'adds a new item to the items array' do
-      genre.add_item(item)
-      expect(genre.items[-1].id).to be(item.id)
-      expect(genre.items[-1].publish_date).to be(item.publish_date)
+    it 'adds an item to the genre' do
+      genre = Genre.new(genre_name)
+      genre.add_item(item1)
+
+      expect(genre.items).to eq([item1.id])
+    end
+
+    it 'adds multiple items to the genre' do
+      genre = Genre.new(genre_name)
+      genre.add_item(item1)
+      genre.add_item(item2)
+
+      expect(genre.items).to eq([item1.id, item2.id])
     end
   end
 end
