@@ -1,51 +1,47 @@
 require_relative '../classes/music_album'
 
-describe MusicAlbum do
-  let(:genre) { double('genre') }
-  let(:album) do
-    MusicAlbum.new(
-      genre: genre,
-      author: 'Pink Floyd',
-      source: 'Vinyl',
-      label: 'EMI',
-      publish_date: '2000-01-01',
-      on_spotify: true
-    )
-  end
-  let(:archived_album) do
-    MusicAlbum.new(
-      genre: genre,
-      author: 'The Beatles',
-      source: 'CD',
-      label: 'Apple Records',
-      publish_date: (Time.now - (10 * 365 * 24 * 60 * 11)).to_s,
-      on_spotify: true
-    )
-  end
+RSpec.describe MusicAlbum do
+  let(:genres) { double('GenresArray') }
+  let(:genre) { double('Genre') }
 
-  describe '#initialize' do
-    it 'creates a new music album with a genre, author, source, label, publish date, and on_spotify flag' do
-      expect(album.genre).to eq genre
-      expect(album.author).to eq 'Pink Floyd'
-      expect(album.source).to eq 'Vinyl'
-      expect(album.label).to eq 'EMI'
-      expect(album.publish_date).to eq Date.parse('2000-01-01')
-      expect(album.on_spotify).to be true
+  describe '#add_genre' do
+    it 'adds the music album to the genre' do
+      allow(genres).to receive(:locate).with(1).and_return(genre)
+      allow(genre).to receive(:add_item)
+
+      music_album = MusicAlbum.new('Album 1', true, '2021-01-01')
+      music_album.add_genre(1, genres)
+
+      expect(genre).to have_received(:add_item).with(music_album)
     end
   end
 
   describe '#can_be_archived?' do
-    it 'returns true if the music album can be archived' do
-      expect(album.can_be_archived?).to be true
+    context 'when the music album is on Spotify and can be archived' do
+      it 'returns true' do
+        music_album = MusicAlbum.new('Album 1', true, '2021-01-01')
+        allow_any_instance_of(Item).to receive(:can_be_archived?).and_return(true)
+
+        expect(music_album.can_be_archived?).to be true
+      end
     end
 
-    it 'returns false if the music album cannot be archived' do
-      expect(archived_album.can_be_archived?).to be false
+    context 'when the music album is not on Spotify' do
+      it 'returns false' do
+        music_album = MusicAlbum.new('Album 1', false, '2021-01-01')
+        allow_any_instance_of(Item).to receive(:can_be_archived?).and_return(true)
+
+        expect(music_album.can_be_archived?).to be false
+      end
     end
 
-    it 'returns false if the music album is not on Spotify' do
-      album.instance_variable_set(:@on_spotify, false)
-      expect(album.can_be_archived?).to be false
+    context 'when the music album cannot be archived' do
+      it 'returns false' do
+        music_album = MusicAlbum.new('Album 1', true, '2021-01-01')
+        allow_any_instance_of(Item).to receive(:can_be_archived?).and_return(false)
+
+        expect(music_album.can_be_archived?).to be false
+      end
     end
   end
 end
