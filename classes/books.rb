@@ -39,7 +39,7 @@ class BooksArray
     label_index = gets.chomp
     if label_index == 'n'
       labels.create_label
-      label_index = (labels.labels.lenght - 1).to_s
+      label_index = (labels.labels.length - 1).to_s
     end
     book = Book.new(name, publisher, cover_state, publish_date)
     book.add_label labels.labels[label_index.to_i].id, labels
