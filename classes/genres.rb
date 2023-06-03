@@ -1,8 +1,9 @@
 require_relative '../lib/filehandler'
+require_relative './genre'
 
 class GenresArray
   include FileHandler
-  attr_accessor :name, :items, :id
+  attr_accessor :name, :items, :genres, :id
 
   def initialize
     @genres = read_file('genres').map do |h|
@@ -12,18 +13,19 @@ class GenresArray
 
   def new_genre(genre)
     @genres << genre
-    save @gemres, 'genres'
+    save @genres, 'genres'
   end
 
   def locate(id)
     @genres.select { |genre| genre.id == id }.pop
   end
 
-  def self.create
-    print 'Name: '
+  def create_genre
+    puts 'Create a new genre'
+    print 'name: '
     name = gets.chomp
+
     genre = Genre.new(name)
-    puts 'Author created successfully!'
-    genre
+    new_genre genre
   end
 end
