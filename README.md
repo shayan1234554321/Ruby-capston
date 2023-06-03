@@ -99,7 +99,7 @@ To run the project, execute the following command:
 
 
 ```sh
-  ruby ---
+  ruby main.rb
 ```
 --->
 

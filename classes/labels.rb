@@ -18,4 +18,15 @@ class LabelsArray
   def locate(id)
     @labels.select { |label| label.id == id }.pop
   end
+
+  def create_label
+    puts 'Create a new label'
+    print 'Title: '
+    title = gets.chomp
+    print 'Color: '
+    color = gets.chomp
+
+    label = Label.new(title, color)
+    new_label label
+  end
 end

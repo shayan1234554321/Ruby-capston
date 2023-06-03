@@ -4,15 +4,20 @@ require_relative '../classes/game'
 require_relative '../classes/authors'
 require_relative '../classes/author'
 require_relative '../classes/music_album'
-
+require_relative '../classes/books'
+require_relative '../classes/labels'
 require_relative 'filehandler'
+require_relative 'listhandler'
 
 class App
   attr_accessor :genres, :music_albums, :games, :authors
 
   include FileHandler
+  include ListHandler
 
   def initialize
+    @books = BooksArray.new
+    @labels = LabelsArray.new
     @games = GamesArray.new
     @authors = AuthorArray.new
 
@@ -55,7 +60,9 @@ class App
   # end
 
   def list_all_books
-    puts 'listing all books here'
+    puts 'Books list'
+    list_obj_arr(@books.books, %w[id name publisher label publish_date archived])
+    # puts @books.books
   end
 
   def list_all_music_albums
@@ -82,7 +89,9 @@ class App
   end
 
   def list_all_labels
-    puts 'listing all labels here'
+    puts 'Label List'
+    list_obj_arr(@labels.labels, %w[id title color])
+    # puts @labels.labels
   end
 
   def list_all_authors
@@ -99,7 +108,8 @@ class App
   end
 
   def add_a_book
-    puts 'add a book here'
+    puts 'Add new book'
+    @books.create_book @labels
   end
 
   def add_a_music_album

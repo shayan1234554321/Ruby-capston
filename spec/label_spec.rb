@@ -1,4 +1,4 @@
-require_relative '../class/label'
+require_relative '../classes/label'
 
 describe Label do
   nil
