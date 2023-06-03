@@ -1,9 +1,9 @@
 require_relative '../classes/book'
 
 describe Book do
-  bgood = Book.new('publisher', 'good', '2020-1-1')
-  bbad = Book.new('publisher', 'bad', '2020-1-1')
-  bold = Book.new('publisher', 'good', '2000-1-1')
+  bgood = Book.new('name', 'publisher', 'good', '2020-1-1')
+  bbad = Book.new('name', 'publisher', 'bad', '2020-1-1')
+  bold = Book.new('name', 'publisher', 'good', '2000-1-1')
 
   it 'should be instance of Book and kind of Item' do
     expect(bgood).to be_instance_of(Book)
