@@ -9,7 +9,9 @@ class BooksArray
 
   def initialize
     @books = read_file('books').map do |h|
-      Book.new(h['name'],h['publisher'], h['cover_state'], h['publish_date'], h['id'].to_i)
+      b = Book.new(h['name'], h['publisher'], h['cover_state'], h['publish_date'], h['id'].to_i)
+      b.label = h['label']
+      b
     end
   end
 
@@ -23,30 +25,24 @@ class BooksArray
   end
 
   def create_book(labels)
-    puts "Add new book"
-    print "Title: "
+    print 'Title: '
     name = gets.chop
-    print "Publisher: "
+    print 'Publisher: '
     publisher = gets.chomp
     print 'Cover State (good/regular/bad): '
     cover_state = gets.chomp
-    print 'Release Date (yyyy-m-d): '
-    release_date = gets.chomp
-    
+    print 'Publish Date (yyyy-m-d): '
+    publish_date = gets.chomp
     puts 'Select a Label from the list'
-    list_obj_arr(labels, ['title', 'color','id'])
+    list_obj_arr(labels.labels, %w[title color id])
     print "Select Item number or 'n' to create a new one: "
-    label_index = gets.chomp   
-    if label_index == 'n' do
+    label_index = gets.chomp
+    if label_index == 'n'
       labels.create_label
-      list_obj_arr(labels, ['title', 'color','id'])
-      print 'Select Item number: '
-      label_index = gets.chomp
+      label_index = (labels.labels.lenght - 1).to_s
     end
-    
-    book = Book.new(name, publish_date, cover_state)
-    book.add_label labels.labels[label_index].id labels
+    book = Book.new(name, publisher, cover_state, publish_date)
+    book.add_label labels.labels[label_index.to_i].id, labels
     new_book book
-    puts 'book entry created successfully'    
   end
 end

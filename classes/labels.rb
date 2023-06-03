@@ -25,8 +25,8 @@ class LabelsArray
     title = gets.chomp
     print 'Color: '
     color = gets.chomp
-    
-    label = Label.new (title, color)
+
+    label = Label.new(title, color)
     new_label label
   end
 end

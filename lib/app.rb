@@ -16,10 +16,10 @@ class App
   include ListHandler
 
   def initialize
-    @games = GamesArray.new
     @books = BooksArray.new
-    @authors = AuthorArray.new
     @labels = LabelsArray.new
+    @games = GamesArray.new
+    @authors = AuthorArray.new
 
     # Genre.load
     # MusicAlbum.load
@@ -61,7 +61,7 @@ class App
 
   def list_all_books
     puts 'Books list'
-    list_obj_arr(@books.books, ['id', 'name', 'publisher', 'label', 'publish_date', 'archived'])
+    list_obj_arr(@books.books, %w[id name publisher label publish_date archived])
     # puts @books.books
   end
 
@@ -90,7 +90,7 @@ class App
 
   def list_all_labels
     puts 'Label List'
-    list_obj_arr(@labels.labels, ['id', 'title', 'color'])
+    list_obj_arr(@labels.labels, %w[id title color])
     # puts @labels.labels
   end
 
@@ -108,7 +108,8 @@ class App
   end
 
   def add_a_book
-    puts 'add a book here'
+    puts 'Add new book'
+    @books.create_book @labels
   end
 
   def add_a_music_album
