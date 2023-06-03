@@ -10,6 +10,7 @@
 
 - [📖 About the Project](#about-project)
   -[UML Diagram](#diagram)
+  -[Walkthrough Video](#walkthrough-video)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -35,10 +36,12 @@
 ## UML Diagram <a name="diagram"></a>
 ![diagram](./catalog_of_my_things.png)
 
+## 🛠 Video Link <a name="walkthrough-video"></a>
+<a href="https://drive.google.com/file/d/12M01PavcYt3Gmk54T2pvmm2caT7ZM-CW/view?usp=sharing" > Walkthrough Video</a>
+
 ## 🛠 Built With <a name="built-with"></a>
 
 - RUBY
-
 
 ### Tech Stack <a name="tech-stack"></a>
 
